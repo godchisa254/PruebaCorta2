@@ -3,7 +3,6 @@
     <div *ngFor="let character of characterList" class="character-card">
       <img [src]="character.image" [alt]="character.name" />
       <h3>{{ character.name }}</h3>
-      <p>Status: {{ character.status }}</p>
       <p>Estado: {{ character.status }}</p>
       <p>Especie: {{ character.species }}</p>
       <p>Ubicación: {{ character.location.name }}</p>
@@ -18,7 +17,7 @@
           [disabled]="!prevPage"
           class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700"
         >
-          Previous
+          Anterior
         </button>
       </li>
       <li>
@@ -27,7 +26,7 @@
           [disabled]="!nextPage"
           class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700"
         >
-          Next
+          Siguiente
         </button>
       </li>
     </ul>
