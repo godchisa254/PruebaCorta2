@@ -31,21 +31,11 @@ export class CharacterService {
       return Promise.reject(error);
     }
   }
-
-  async GoToPage(page: number): Promise<ResponseAPIGetAll[]> {
-    try {
-
-      const queryParams = new HttpParams().set('page', page); 
-
-      const response = await firstValueFrom(this.http.get<ResponseAPIGetAll[]>(`${this.baseUrl}/character?page=${queryParams}`));
-      console.log(response);
-      return Promise.resolve(response);
-    } catch (error) {
-      let e = error as HttpErrorResponse;
-      console.error('Error al obtener los personajes', error);
-      this.errors.push(e.message);
-      return Promise.reject(error);
-    }
+ 
+  async fetchPage(url: string): Promise<ResponseAPIGetAll> {
+    const response = await firstValueFrom(this.http.get<ResponseAPIGetAll>(url));
+    console.log(response);
+    return Promise.resolve(response);
   }
 
 }
